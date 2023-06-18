@@ -4,7 +4,7 @@ import { MDX } from 'contentlayer/core';
 
 type PostProps = {
   title: string;
-  description: string;
+  description: string | undefined;
   body: MDX;
 }
 
