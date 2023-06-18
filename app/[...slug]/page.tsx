@@ -1,10 +1,18 @@
 import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { allPages } from "contentlayer/generated"
+import { allPosts } from "contentlayer/generated"
 
-import { Mdx } from "@/components/mdx-components"
+import Post from "@/components/post"
+import Page from "@/components/page"
 
 interface PageProps {
+  params: {
+    slug: string[]
+  }
+}
+
+interface PostProps {
   params: {
     slug: string[]
   }
@@ -20,6 +28,18 @@ async function getPageFromParams(params: PageProps["params"]) {
 
   return page
 }
+
+async function getPostFromParams(params: PostProps["params"]) {
+  const slug = params?.slug?.join("/")
+  const post = allPosts.find((post) => post.slugAsParams === slug)
+
+  if (!post) {
+    null
+  }
+
+  return post
+}
+
 
 export async function generateMetadata({
   params,
@@ -44,17 +64,17 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
 
 export default async function PagePage({ params }: PageProps) {
   const page = await getPageFromParams(params)
+  const post = await getPostFromParams(params)
 
-  if (!page) {
-    notFound()
+  if(!!post) {
+    return <Post title={post.title} description={post.description} body={post.body} />
   }
 
-  return (
-    <article className="w-10/12 py-6 mx-auto prose-lg max-w-none dark:prose-invert prose-headings:text-green-800 prose-headings:dark:text-green-400">
-      <h1>{page.title}</h1>
-      {page.description && <p className="text-2xl leading-normal">{page.description}</p>}
-      <hr />
-      <Mdx code={page.body.code} />
-    </article>
-  )
+  if(!!page) {
+    return <Page title={page.title} description={page.description} body={page.body} />
+  }
+
+  else {
+    notFound();
+  }
 }
