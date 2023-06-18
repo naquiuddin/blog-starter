@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Naquiuddin Khaja",
-  description: "Frontend Focused Full Stack Software Engineer",
+  description: "I help you grow your Software Development skills and improve your productivity, self disciplined and health as a Softwaer Engineer."
 }
 
 interface RootLayoutProps {
