@@ -1,19 +1,15 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
+
 const computedFields = {
   slug: {
     type: "string",
-    resolve: (doc) => {
-      // console.log(doc._raw.flattenedPath.split("/").slice(1).join(""));
-      return `/${doc._raw.flattenedPath.split("/").slice(1).join("")}`},
+    resolve: (doc) => `/${doc._raw.flattenedPath.split("/").slice(1).join("")}`,
   },
   slugAsParams: {
     type: "string",
-    resolve: (doc) => {
-      // console.log(doc._raw.flattenedPath.split('/').slice(1).join('/'));
-      return doc._raw.flattenedPath.split("/").slice(1).join("/") 
-    },
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
 }
 

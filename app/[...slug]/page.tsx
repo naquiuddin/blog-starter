@@ -23,7 +23,7 @@ async function getPageFromParams(params: PageProps["params"]) {
   const page = allPages.find((page) => page.slugAsParams === slug)
 
   if (!page) {
-    null
+    return null
   }
 
   return page
@@ -34,7 +34,7 @@ async function getPostFromParams(params: PostProps["params"]) {
   const post = allPosts.find((post) => post.slugAsParams === slug)
 
   if (!post) {
-    null
+    return null
   }
 
   return post
@@ -63,18 +63,18 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
 }
 
 export default async function PagePage({ params }: PageProps) {
-  const page = await getPageFromParams(params)
-  const post = await getPostFromParams(params)
+  const page = await getPageFromParams(params);
+  const post = await getPostFromParams(params);
+
+  if(!post && !page) {
+    notFound();
+  }
 
   if(!!post) {
-    return <Post title={post.title} description={post.description} body={post.body} />
+    return (<Post title={post.title} description={post.description} body={post.body} />);
   }
 
   if(!!page) {
-    return <Page title={page.title} description={page.description} body={page.body} />
-  }
-
-  else {
-    notFound();
+    return (<Page title={page.title} description={page.description} body={page.body} />);
   }
 }

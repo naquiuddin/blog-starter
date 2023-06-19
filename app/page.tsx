@@ -7,13 +7,13 @@ export default function Home() {
     return dayjs(b.date).unix() - dayjs(a.date).unix()
   });
   return (
-    <div className="mx-auto my-4 prose-lg dark:prose-invert prose-headings:text-green-800 prose-headings:dark:text-green-400">
-      <h1 className="mb-2 text-lg font-bold">Latest Posts</h1>
+    <div className="mx-auto my-4 prose-lg dark:prose-invert prose-headings:text-green-800 prose-headings:dark:text-green-400 prose-a:no-underline">
+      <h1 className="px-4 mb-2 text-lg font-bold">Latest Posts</h1>
       {posts.map((post) => (
-        <div key={post._id} className="flex flex-row gap-4 py-6 border-t border-opacity-50 border-t-gray-400 prose-headings:text-green-800 prose-headings:dark:text-green-400">
-          <h2 className="w-1/6 mt-0 mb-0 text-lg">{dayjs(post.date).format('MMM D, YYYY')}</h2>
-          <article className="w-5/6">
-            <Link className="no-underline" href={post.slug}>
+        <div key={post._id} className="flex flex-col gap-4 px-4 py-6 border-t border-opacity-50 sm:flex-row border-t-gray-400">
+          <h2 className="w-full mt-0 mb-0 text-lg sm:w-3/12">{dayjs(post.date).format('MMM D, YYYY')}</h2>
+          <article className="w-full sm:w-9/12">
+            <Link href={post.slug}>
               <h2 className="mt-0 mb-0 text-3xl">{post.title}</h2>
             </Link>
             {post.description && <p>{post.description}</p>}
