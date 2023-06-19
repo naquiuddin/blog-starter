@@ -18,12 +18,12 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className}`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="w-full py-10 sm:mx-auto lg:w-9/12">
+          <div className="w-full py-6 sm:py-10 sm:mx-auto lg:w-9/12">
             <header className="px-4">
               <div className="flex items-center justify-between mb-10 text-green-800 dark:text-green-400">
                 <Link href="/" className="flex text-2xl font-semibold">

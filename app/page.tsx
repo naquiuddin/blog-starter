@@ -7,7 +7,7 @@ export default function Home() {
     return dayjs(b.date).unix() - dayjs(a.date).unix()
   });
   return (
-    <div className="mx-auto my-4 prose-lg dark:prose-invert prose-headings:text-green-800 prose-headings:dark:text-green-400 prose-a:no-underline">
+    <div className="mx-auto my-4 prose-lg sm:w-10/12 dark:prose-invert prose-headings:text-green-800 prose-headings:dark:text-green-400 prose-a:no-underline prose-h1:font-bold prose-h2:font-semibold">
       <h1 className="px-4 mb-2 text-lg font-bold">Latest Posts</h1>
       {posts.map((post) => (
         <div key={post._id} className="flex flex-col gap-4 px-4 py-6 border-t border-opacity-50 sm:flex-row border-t-gray-400">
