@@ -1,5 +1,6 @@
 import { Mdx } from "@/components/mdx-components"
 import { MDX } from 'contentlayer/core';
+import NewsletterForm from "./newsletter-form";
 
 type PostProps = {
   title: string;
@@ -19,6 +20,7 @@ const Post = function({ title, description, body}: PostProps) {
         )}
         <hr className="my-4" />
         <Mdx code={body.code} />
+        <NewsletterForm />
       </article>
   );
 }

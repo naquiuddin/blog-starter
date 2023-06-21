@@ -5,6 +5,7 @@ import { allPosts } from "contentlayer/generated"
 
 import Post from "@/components/post"
 import Page from "@/components/page"
+import NewsletterForm from "@/components/newsletter-form"
 
 interface PageProps {
   params: {
@@ -72,7 +73,7 @@ export default async function PagePage({ params }: PageProps) {
 
   if(!!post) {
     return (<Post title={post.title} description={post.description} body={post.body} />);
-  }
+  }   
 
   if(!!page) {
     return (<Page title={page.title} description={page.description} body={page.body} />);
