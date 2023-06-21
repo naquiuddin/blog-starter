@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
   title: "Blog Starter",
-  description: "A blog starter to quickly launch your blog"
+  description: "A JAMStack blog starter made using NEXT.js, Tailwindcss and Content-Layer. Helps you launch your blog fast"
 }
 
 interface RootLayoutProps {
