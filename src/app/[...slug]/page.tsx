@@ -5,7 +5,6 @@ import { allPosts } from "contentlayer/generated"
 
 import Post from "@/components/post"
 import Page from "@/components/page"
-import NewsletterForm from "@/components/newsletter-form"
 
 interface PageProps {
   params: {

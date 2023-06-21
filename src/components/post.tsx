@@ -1,4 +1,4 @@
-import { Mdx } from "@/components/mdx-components"
+import { Mdx } from "@/components/mdx-components";
 import { MDX } from 'contentlayer/core';
 import NewsletterForm from "./newsletter-form";
 
